@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "660999486189",
+    "project_id": "screencast-mob",
+    "storage_bucket": "screencast-mob.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660999486189:android:e7b72f2bf5c216e384aae4",
+        "android_client_info": {
+          "package_name": "info.dvkr.screenstream"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE1wI-hJqnDn4JE7A5T8WpAaummybY9hc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

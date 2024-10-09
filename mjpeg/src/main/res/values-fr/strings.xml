@@ -64,6 +64,8 @@
     <string name="mjpeg_pref_html_back_color">Couleur de fond de la page web</string>
     <string name="mjpeg_pref_html_back_color_summary">Définir la couleur de fond de la page web</string>
     <string name="mjpeg_pref_html_back_color_title">Sélectionner la couleur de fond</string>
+    <string name="mjpeg_pref_html_fit_window">Ajuster l\'image à la fenêtre du navigateur</string>
+    <string name="mjpeg_pref_html_fit_window_summary">Agrandir l\'image dans le navigateur à la largeur/hauteur complète de la fenêtre</string>
 
     <string name="mjpeg_pref_settings_image">Image</string>
     <string name="mjpeg_pref_vr_mode">Mode réalité virtuelle</string>
@@ -92,7 +94,8 @@
     <string name="mjpeg_pref_rotate_summary">Faire pivoter l\'image avant de l\'envoyer au client</string>
     <string name="mjpeg_pref_fps">Limiter les images par seconde</string>
     <string name="mjpeg_pref_fps_summary">Définir le nombre maximum d\'images par seconde</string>
-    <string name="mjpeg_pref_fps_text">Définir le nombre maximum d\'images par seconde.\nValeurs: 1–120\nPar défaut: 30</string>
+    <string name="mjpeg_pref_fps_text">Définir le nombre maximum d\'images par seconde.\nValeurs: 1/10–120\nPar défaut: 30</string>
+    <string name="mjpeg_pref_fps_low_mode_text">Limiter le taux de rafraîchissement à une image toutes les %d secondes, idéal pour les écrans E-Ink.</string>
     <string name="mjpeg_pref_jpeg_quality">Qualité de compression JPEG</string>
     <string name="mjpeg_pref_jpeg_quality_summary">Définir la qualité de compression JPEG</string>
     <string name="mjpeg_pref_jpeg_quality_text">Définir la qualité de compression JPEG.\nValeurs: 10–100\nPar défaut: 80</string>

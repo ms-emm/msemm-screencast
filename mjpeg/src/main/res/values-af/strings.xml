@@ -65,6 +65,8 @@
     <string name="mjpeg_pref_html_back_color">Webblad agtergrondkleur</string>
     <string name="mjpeg_pref_html_back_color_summary">Stel webblad agtergrondkleur</string>
     <string name="mjpeg_pref_html_back_color_title">Kies agtergrondkleur</string>
+    <string name="mjpeg_pref_html_fit_window">Pas prent aan by blaaier venster</string>
+    <string name="mjpeg_pref_html_fit_window_summary">Skaleer prent in blaaier na volle vensterbreedte/hoogte</string>
 
     <string name="mjpeg_pref_settings_image">Beeld</string>
     <string name="mjpeg_pref_vr_mode">Virtuele werklikheidsmodus</string>
@@ -88,7 +90,8 @@
     <string name="mjpeg_pref_rotate_summary">Draai prent voordat dit na kliënt gestuur word</string>
     <string name="mjpeg_pref_fps">Beperk rame per sekonde</string>
     <string name="mjpeg_pref_fps_summary">Stel maksimum rame per sekonde</string>
-    <string name="mjpeg_pref_fps_text">Stel maksimum rame per sekonde. Waardes: 1–120 Verstek: 30</string>
+    <string name="mjpeg_pref_fps_text">Stel maksimum rame per sekonde. Waardes: 1/10–120 Verstek: 30</string>
+    <string name="mjpeg_pref_fps_low_mode_text">Beperk raamtempo tot een raam elke %d sekondes, ideaal vir E-Ink-skerms.</string>
     <string name="mjpeg_pref_jpeg_quality">JPEG kompressie kwaliteit</string>
     <string name="mjpeg_pref_jpeg_quality_summary">Stel JPEG-kompressiekwaliteit in</string>
     <string name="mjpeg_pref_jpeg_quality_text">Stel JPEG-kompressiekwaliteit in. Waardes: 10–100 Verstek: 80</string>

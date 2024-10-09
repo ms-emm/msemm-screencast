@@ -64,6 +64,8 @@
     <string name="mjpeg_pref_html_back_color">背景色</string>
     <string name="mjpeg_pref_html_back_color_summary">設定串流頁面背景色</string>
     <string name="mjpeg_pref_html_back_color_title">選擇背景色</string>
+    <string name="mjpeg_pref_html_fit_window">適應瀏覽器視窗的圖片</string>
+    <string name="mjpeg_pref_html_fit_window_summary">在瀏覽器中縮放圖片以適應整個視窗的寬度/高度</string>
 
     <string name="mjpeg_pref_settings_image">畫面</string>
     <string name="mjpeg_pref_vr_mode">虛擬實境模式</string>
@@ -92,7 +94,8 @@
     <string name="mjpeg_pref_rotate_summary">傳送順時針旋轉過的畫面到用戶端</string>
     <string name="mjpeg_pref_fps">畫面幀率限制</string>
     <string name="mjpeg_pref_fps_summary">設置每秒最大畫面數</string>
-    <string name="mjpeg_pref_fps_text">設置每秒最大畫面數。\n範圍: 1–120\n預設: 30</string>
+    <string name="mjpeg_pref_fps_text">設置每秒最大畫面數。\n範圍: 1/10–120\n預設: 30</string>
+    <string name="mjpeg_pref_fps_low_mode_text">將幀速率限制為每%d秒一幀，適用於電子墨水螢幕。</string>
     <string name="mjpeg_pref_jpeg_quality">JPEG壓縮品質</string>
     <string name="mjpeg_pref_jpeg_quality_summary">設定JPEG壓縮品質</string>
     <string name="mjpeg_pref_jpeg_quality_text">設定JPEG壓縮品質。\n範圍： 10–100\n預設： 80</string>

@@ -11,6 +11,11 @@ plugins {
     alias(libs.plugins.firebaseCrashlytics)
 }
 
+kotlin {
+    explicitApi()
+    jvmToolchain(17)
+}
+
 android {
     signingConfigs {
         getByName("debug") {
@@ -26,14 +31,14 @@ android {
     namespace = "info.dvkr.screenstream"
     compileSdk = rootProject.extra["compileSdkVersion"] as Int
     buildToolsVersion = rootProject.extra["buildToolsVersion"] as String
-    ndkVersion = "26.3.11579264"
+    ndkVersion = "27.1.12297006"
 
     defaultConfig {
         applicationId = "info.dvkr.screenstream"
         minSdk = rootProject.extra["minSdkVersion"] as Int
         targetSdk = rootProject.extra["targetSdkVersion"] as Int
-        versionCode = 41009
-        versionName = "4.1.9"
+        versionCode = 41012
+        versionName = "4.1.12"
 
         // https://medium.com/@crafty/no-if-you-do-that-then-you-cant-use-newer-features-on-older-platforms-e-g-fa595333c0a4
         vectorDrawables.useSupportLibrary = true
@@ -85,17 +90,6 @@ android {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-        freeCompilerArgs += "-Xexplicit-api=strict"
-    }
-
-    composeCompiler {
-        enableStrongSkippingMode = true
     }
 
     packaging {
@@ -112,27 +106,23 @@ dependencies {
 
     ksp(libs.koin.ksp)
 
-    implementation(project(":common"))
+    implementation(projects.common)
 
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.compose.material3.adaptive.navigation.suite)
-    implementation(libs.androidx.compose.material3.adaptive)
     implementation(libs.androidx.compose.material3.adaptive.layout)
     implementation(libs.androidx.compose.material3.adaptive.navigation)
     implementation(libs.processPhoenix)
 
-    // MJPEG
-    implementation(project(":mjpeg"))
+    implementation(projects.mjpeg)
 
-    // PlayStore-WebRTC
-    "PlayStoreImplementation"(project(":webrtc"))
+    "PlayStoreImplementation"(projects.webrtc)
     "PlayStoreImplementation"(libs.play.services.tasks)
     "PlayStoreImplementation"(libs.play.app.update)
+    "PlayStoreImplementation"(libs.play.app.review)
     "PlayStoreImplementation"(libs.play.services.ads)
     "PlayStoreImplementation"(libs.webkit)
     "PlayStoreImplementation"(libs.firebase.analytics)
     "PlayStoreImplementation"(libs.firebase.crashlytics)
     "PlayStoreImplementation"(libs.firebase.crashlytics.ndk)
-
-//    debugImplementation(libs.leakcanary.android)
 }

@@ -6,6 +6,11 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
+kotlin {
+    explicitApi()
+    jvmToolchain(17)
+}
+
 android {
     namespace = "info.dvkr.screenstream.common"
     compileSdk = rootProject.extra["compileSdkVersion"] as Int
@@ -14,20 +19,6 @@ android {
     defaultConfig {
         minSdk = rootProject.extra["minSdkVersion"] as Int
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-        freeCompilerArgs += "-Xexplicit-api=strict"
-    }
-
-    composeCompiler {
-        enableStrongSkippingMode = true
-    }
 }
 
 dependencies {
@@ -35,6 +26,7 @@ dependencies {
 
     api(libs.androidx.core.ktx)
     api(libs.androidx.activity.compose)
+    api(libs.androidx.fragment)
     api(libs.androidx.appcompat)
     api(libs.androidx.lifecycle.runtime.compose)
     api(libs.androidx.window)
@@ -42,17 +34,12 @@ dependencies {
 
     api(platform(libs.androidx.compose.bom))
     api(libs.androidx.compose.ui)
-//    api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.material3)
     api(libs.androidx.compose.material3.window)
-    api("androidx.compose.foundation:foundation:1.7.0-beta06")
-    api("androidx.compose.material3:material3:1.3.0-beta05")
 
     api(libs.koin.android.compose)
     api(libs.koin.annotations)
     ksp(libs.koin.ksp)
 
     api(libs.xlog)
-
-//    api(libs.androidx.compose.ui.tooling.preview)
-//    debugApi(libs.androidx.compose.ui.tooling)
 }

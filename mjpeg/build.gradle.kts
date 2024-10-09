@@ -6,6 +6,11 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
+kotlin {
+    explicitApi()
+    jvmToolchain(17)
+}
+
 android {
     namespace = "info.dvkr.screenstream.mjpeg"
     compileSdk = rootProject.extra["compileSdkVersion"] as Int
@@ -15,27 +20,13 @@ android {
         minSdk = rootProject.extra["minSdkVersion"] as Int
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-        freeCompilerArgs += "-Xexplicit-api=strict"
-    }
-
     androidResources {
         ignoreAssetsPattern = "!dev"
-    }
-
-    composeCompiler {
-        enableStrongSkippingMode = true
     }
 }
 
 dependencies {
-    implementation(project(":common"))
+    implementation(projects.common)
 
     ksp(libs.koin.ksp)
 

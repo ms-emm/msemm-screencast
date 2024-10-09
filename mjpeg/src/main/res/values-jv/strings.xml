@@ -65,6 +65,8 @@
     <string name="mjpeg_pref_html_back_color">Werna latar mburi kaca web</string>
     <string name="mjpeg_pref_html_back_color_summary">Setel werna latar mburi kaca web</string>
     <string name="mjpeg_pref_html_back_color_title">Pilih werna latar mburi</string>
+    <string name="mjpeg_pref_html_fit_window">Pas gambar menyang jendhela browser</string>
+    <string name="mjpeg_pref_html_fit_window_summary">Skala gambar ing browser menyang kebekan jendhela</string>
 
     <string name="mjpeg_pref_settings_image">Gambar</string>
     <string name="mjpeg_pref_vr_mode">Mode kasunyatan virtual</string>
@@ -88,7 +90,8 @@
     <string name="mjpeg_pref_rotate_summary">Puter gambar sadurunge dikirim menyang klien</string>
     <string name="mjpeg_pref_fps">Watesan pigura per detik</string>
     <string name="mjpeg_pref_fps_summary">Setel pigura maksimum saben detik</string>
-    <string name="mjpeg_pref_fps_text">Setel pigura maksimum saben detik. Nilai: 1–120 Default: 30</string>
+    <string name="mjpeg_pref_fps_text">Setel pigura maksimum saben detik. Nilai: 1/10–120 Default: 30</string>
+    <string name="mjpeg_pref_fps_low_mode_text">Watesi tarif pigura dadi siji pigura saben %d detik, cocog kanggo layar E-Ink.</string>
     <string name="mjpeg_pref_jpeg_quality">Kualitas kompresi JPEG</string>
     <string name="mjpeg_pref_jpeg_quality_summary">Setel kualitas kompresi JPEG</string>
     <string name="mjpeg_pref_jpeg_quality_text">Setel kualitas kompresi JPEG. Nilai: 10–100 Default: 80</string>

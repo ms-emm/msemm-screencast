@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.graphics.Bitmap
 import com.elvishew.xlog.XLog
-import info.dvkr.screenstream.common.getAppVersion
 import info.dvkr.screenstream.common.getLog
+import info.dvkr.screenstream.common.getVersionName
 import info.dvkr.screenstream.common.randomString
 import info.dvkr.screenstream.mjpeg.R
 import info.dvkr.screenstream.mjpeg.internal.HttpServerData.Companion.getClientId
@@ -105,7 +105,7 @@ internal class HttpServer(
         .replace("%ERROR%", context.getString(R.string.mjpeg_html_error_unspecified)) //TODO not used
         .replace("%DD_SERVICE%", if (debuggable) "mjpeg_client:dev" else "mjpeg_client:prod")
         .replace("DD_HANDLER", if (debuggable) "[\"http\", \"console\"]" else "[\"http\"]")
-        .replace("%APP_VERSION%", context.getAppVersion())
+        .replace("%APP_VERSION%", context.getVersionName())
 
     private val indexHtml: AtomicReference<String> = AtomicReference("")
     private val lastJPEG: AtomicReference<ByteArray> = AtomicReference(ByteArray(0))
@@ -124,16 +124,23 @@ internal class HttpServer(
         val coroutineScope = CoroutineScope(Job() + Dispatchers.Default)
 
         mjpegSettings.data
-            .map { it.htmlBackColor }
+            .map { Pair(it.htmlBackColor, it.htmlFitWindow) }
             .distinctUntilChanged()
-            .onEach { htmlBackColor -> indexHtml.set(baseIndexHtml.replace("BACKGROUND_COLOR", htmlBackColor.toColorHexString())) }
+            .onEach { (backColor, fitWindow) ->
+                indexHtml.set(
+                    baseIndexHtml
+                        .replace("BACKGROUND_COLOR", backColor.toColorHexString())
+                        .replace("FIT_WINDOW", if (fitWindow) """style='width: 100%; object-fit: contain;'""" else "")
+                )
+            }
             .launchIn(coroutineScope)
 
         mjpegSettings.data
-            .map { Pair(it.htmlEnableButtons && serverData.enablePin.not(), it.htmlBackColor.toColorHexString()) }
+            .map { Triple(it.htmlEnableButtons && serverData.enablePin.not(), it.htmlBackColor.toColorHexString(), it.htmlFitWindow) }
             .distinctUntilChanged()
-            .onEach { (enableButtons, backColor) ->
-                serverData.notifyClients("SETTINGS", JSONObject().put("enableButtons", enableButtons).put("backColor", backColor))
+            .onEach { (enableButtons, backColor, fitWindow) ->
+                val data = JSONObject(mapOf("enableButtons" to enableButtons, "backColor" to backColor, "fitWindow" to fitWindow))
+                serverData.notifyClients("SETTINGS", data)
             }
             .launchIn(coroutineScope)
 
@@ -150,11 +157,15 @@ internal class HttpServer(
             .filter { it.isNotEmpty() }
             .onEach { jpeg -> lastJPEG.set(jpeg) }
             .flatMapLatest { jpeg ->
-                flow<ByteArray> { // Send last image every second as keep-alive
-                    while (currentCoroutineContext().isActive) {
-                        emit(jpeg)
-                        delay(1000)
+                if (mjpegSettings.data.value.maxFPS > 0) {
+                    flow<ByteArray> { // Send last image every second as keep-alive
+                        while (currentCoroutineContext().isActive) {
+                            emit(jpeg)
+                            delay(1000)
+                        }
                     }
+                } else {
+                    flow { emit(jpeg) }
                 }
             }
             .conflate()

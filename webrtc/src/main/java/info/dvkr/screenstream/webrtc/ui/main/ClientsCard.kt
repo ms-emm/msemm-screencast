@@ -8,13 +8,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import info.dvkr.screenstream.common.ui.ExpandableCard
 import info.dvkr.screenstream.common.ui.stylePlaceholder
@@ -28,24 +27,22 @@ internal fun ClientsCard(
     onClientDisconnect: (ClientId) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val clients = remember { derivedStateOf { webRtcState.value.clients } }
-
     ExpandableCard(
         headerContent = {
             Text(
-                text = stringResource(id = R.string.webrtc_stream_connected_clients, clients.value.size)
-                    .stylePlaceholder(clients.value.size.toString(), SpanStyle(fontWeight = FontWeight.Bold)),
+                text = stringResource(id = R.string.webrtc_stream_connected_clients, webRtcState.value.clients.size)
+                    .stylePlaceholder(webRtcState.value.clients.size.toString(), SpanStyle(fontWeight = FontWeight.Bold)),
                 modifier = Modifier.align(Alignment.Center)
             )
         },
         modifier = modifier,
         contentModifier = Modifier.padding(vertical = 8.dp, horizontal = 4.dp),
-        expandable = clients.value.isNotEmpty()
+        expandable = webRtcState.value.clients.isNotEmpty(),
     ) {
         webRtcState.value.clients.forEachIndexed { index, client ->
             WebRtcClient(client = client, onClientDisconnect = onClientDisconnect)
 
-            if (index != clients.value.lastIndex) {
+            if (index != webRtcState.value.clients.lastIndex) {
                 HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp).fillMaxWidth())
             }
         }
@@ -63,7 +60,7 @@ private fun WebRtcClient(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(text = "${client.publicId.substring(0, 4)}-${client.publicId.substring(4)}")
-        Text(text = client.address, modifier = Modifier.padding(start = 8.dp).weight(1F))
+        Text(text = client.address, modifier = Modifier.padding(start = 8.dp).weight(1F), textAlign = TextAlign.Center)
         TextButton(onClick = { onClientDisconnect.invoke(ClientId(client.id)) }) {
             Text(text = stringResource(id = R.string.webrtc_item_client_disconnect))
         }

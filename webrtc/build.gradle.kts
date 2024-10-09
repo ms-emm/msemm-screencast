@@ -8,11 +8,16 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
+kotlin {
+    explicitApi()
+    jvmToolchain(17)
+}
+
 android {
     namespace = "info.dvkr.screenstream.webrtc"
     compileSdk = rootProject.extra["compileSdkVersion"] as Int
     buildToolsVersion = rootProject.extra["buildToolsVersion"] as String
-    ndkVersion = "26.3.11579264"
+    ndkVersion = "27.0.12077973"
 
     defaultConfig {
         minSdk = rootProject.extra["minSdkVersion"] as Int
@@ -37,31 +42,17 @@ android {
             buildConfigField("String", "CLOUD_PROJECT_NUMBER", localProps.getProperty("CLOUD_PROJECT_NUMBER_RELEASE", "\"\""))
         }
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-        freeCompilerArgs += "-Xexplicit-api=strict"
-    }
-
-    composeCompiler {
-        enableStrongSkippingMode = true
-    }
 }
 
 dependencies {
-    implementation(project(":common"))
+    implementation(projects.common)
 
     ksp(libs.koin.ksp)
 
     implementation(libs.play.services.tasks)
     implementation(libs.play.integrity)
 
-    // Local Webrtc m126.0.6478.122
+    // Local WebRTC m128.0.6613.141
     implementation(libs.socket)
     implementation(libs.okio)
     implementation(libs.okhttp)

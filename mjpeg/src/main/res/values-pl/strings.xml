@@ -65,6 +65,8 @@
     <string name="mjpeg_pref_html_back_color">Kolor tła strony internetowej</string>
     <string name="mjpeg_pref_html_back_color_summary">Ustawia kolor tła strony internetowej</string>
     <string name="mjpeg_pref_html_back_color_title">Wybierz kolor tła</string>
+    <string name="mjpeg_pref_html_fit_window">Dopasuj obraz do okna przeglądarki</string>
+    <string name="mjpeg_pref_html_fit_window_summary">Powiększ obraz w przeglądarce do pełnej szerokości/wysokości okna</string>
 
     <string name="mjpeg_pref_settings_image">Obraz</string>
     <string name="mjpeg_pref_vr_mode">Tryb wirtualnej rzeczywistości</string>
@@ -93,7 +95,8 @@
     <string name="mjpeg_pref_rotate_summary">Obraca obraz przed wysłaniem</string>
     <string name="mjpeg_pref_fps">Ogranicz liczbę klatek na sekundę</string>
     <string name="mjpeg_pref_fps_summary">Ustawia maksymalną liczbę klatek na sekundę</string>
-    <string name="mjpeg_pref_fps_text">Ustaw maksymalną liczbę klatek na sekundę.\nWartość: 1–120\nDomyślnie: 30</string>
+    <string name="mjpeg_pref_fps_text">Ustaw maksymalną liczbę klatek na sekundę.\nWartość: 1/10–120\nDomyślnie: 30</string>
+    <string name="mjpeg_pref_fps_low_mode_text">Ogranicz liczbę klatek do jednej klatki co %d sekund, idealne dla ekranów E-Ink.</string>
     <string name="mjpeg_pref_jpeg_quality">Jakość kompresji JPEG</string>
     <string name="mjpeg_pref_jpeg_quality_summary">Ustawia jakość kompresji JPEG</string>
     <string name="mjpeg_pref_jpeg_quality_text">Ustaw jakość kompresji JPEG.\nWartość: 10–100\nDomyślnie: 80</string>

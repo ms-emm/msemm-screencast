@@ -65,6 +65,8 @@
     <string name="mjpeg_pref_html_back_color">Pagina achtergrond kleur</string>
     <string name="mjpeg_pref_html_back_color_summary">Stel de pagina achtergrond kleur in</string>
     <string name="mjpeg_pref_html_back_color_title">Selecteer pagina achtergrond kleur</string>
+    <string name="mjpeg_pref_html_fit_window">Pas afbeelding aan browservenster aan</string>
+    <string name="mjpeg_pref_html_fit_window_summary">Vergroot afbeelding in browser naar volledige vensterbreedte/-hoogte</string>
 
     <string name="mjpeg_pref_settings_image">Beeld</string>
     <string name="mjpeg_pref_vr_mode">Virtual Reality modus</string>
@@ -93,7 +95,8 @@
     <string name="mjpeg_pref_rotate_summary">Draai het scherm om voor het sturen naar de client</string>
     <string name="mjpeg_pref_fps">Limiteer beelden per seconden (FPS)</string>
     <string name="mjpeg_pref_fps_summary">Maximum beelden per seconden (FPS)</string>
-    <string name="mjpeg_pref_fps_text">Stel het maximum beelden per seconden in (FPS).\nWaardes: 1–120\nStandaard: 30</string>
+    <string name="mjpeg_pref_fps_text">Stel het maximum beelden per seconden in (FPS).\nWaardes: 1/10–120\nStandaard: 30</string>
+    <string name="mjpeg_pref_fps_low_mode_text">Beperk de framesnelheid tot één frame elke %d seconden, ideaal voor E-Ink-schermen.</string>
     <string name="mjpeg_pref_jpeg_quality">JPEG compressie kwaliteit</string>
     <string name="mjpeg_pref_jpeg_quality_summary">Stel JPEG compressie kwaliteit in</string>
     <string name="mjpeg_pref_jpeg_quality_text">Stel JPEG compressie kwaliteit.\nWaardes: 10–100\nStandaard: 80</string>

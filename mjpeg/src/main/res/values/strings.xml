@@ -64,6 +64,8 @@
     <string name="mjpeg_pref_html_back_color">Web page background color</string>
     <string name="mjpeg_pref_html_back_color_summary">Set web page background color</string>
     <string name="mjpeg_pref_html_back_color_title">Select background color</string>
+    <string name="mjpeg_pref_html_fit_window">Fit image to browser window</string>
+    <string name="mjpeg_pref_html_fit_window_summary">Scale up image in browser to full window width/height</string>
 
     <string name="mjpeg_pref_settings_image">Image</string>
     <string name="mjpeg_pref_vr_mode">Virtual reality mode</string>
@@ -100,7 +102,8 @@
     </string-array>
     <string name="mjpeg_pref_fps">Limit frames per second</string>
     <string name="mjpeg_pref_fps_summary">Set maximum frames per second</string>
-    <string name="mjpeg_pref_fps_text">Set maximum frames per second.\nValues: 1–120\nDefault: 30</string>
+    <string name="mjpeg_pref_fps_text">Set maximum frames per second.\nValues: 1/10–120\nDefault: 30</string>
+    <string name="mjpeg_pref_fps_low_mode_text">Limit frame rate to one frame every %d seconds, ideal for E-Ink screens.</string>
     <string name="mjpeg_pref_jpeg_quality">JPEG compression quality</string>
     <string name="mjpeg_pref_jpeg_quality_summary">Set JPEG compression quality</string>
     <string name="mjpeg_pref_jpeg_quality_text">Set JPEG compression quality.\nValues: 10–100\nDefault: 80</string>
